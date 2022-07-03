@@ -39,6 +39,26 @@ class LinkedList {
         this.length++
         return this
     }
+    
+    pop() {
+        if (this.length == 0) {
+            return null
+        }
+        let temp = this.head
+        let pre = this.head
+        while(temp.next != null) {
+            pre = temp
+            temp = temp.next
+        }
+        this.tail = pre
+        this.tail.next = null
+        this.length--
+        if (this.length == 0) {
+            this.head = null
+            this.tail = null
+        }
+        return temp
+    }
 }
 
 
@@ -50,5 +70,6 @@ myLinkedList.push(4)
 myLinkedList.push(23)
 myLinkedList.push(12)
 myLinkedList.push(5)
+myLinkedList.pop()
 
 myLinkedList.printAll()
