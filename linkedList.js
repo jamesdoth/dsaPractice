@@ -4,7 +4,6 @@ class Node {
         this.next = null
     }
 }
-
 class LinkedList {
     constructor(value){
         const newNode = new Node(value)
@@ -12,13 +11,11 @@ class LinkedList {
         this.tail = this.head
         this.length = 1
     }
-
     // printAll() {
     //     for (let temp = this.head; temp != null; temp = temp.next) {
     //         console.log(temp)
     //     }
     // }
-
     printAll() {
         let temp = this.head
         while(temp) {
@@ -26,7 +23,6 @@ class LinkedList {
             temp = temp.next
         }
     }
-
     push(value) {
         const newNode = new Node(value)
         if(!this.head) {
@@ -38,13 +34,14 @@ class LinkedList {
         }
         this.length++
         return this
-    }
-    
+    }  
     pop() {
         // if(this.length === 0) {
         //     return undefined
         // }
-        if(!this.head) return undefined
+        if(!this.head) {
+            return undefined
+        }
         let temp = this.head
         let pre = this.head
         // while(temp.next != null) {
@@ -64,7 +61,6 @@ class LinkedList {
         }
         return temp
     }
-    
     unshift(value) {
         const newNode = new Node(value)
         if(!this.head) {
@@ -76,10 +72,11 @@ class LinkedList {
         }
         this.length++
         return this
-    }
-
+    } 
     shift() {
-        if(!this.head) return undefined
+        if(!this.head) {
+            return undefined
+        }
         let temp = this.head
         this.head = this.head.next
         temp.next = null
@@ -89,10 +86,17 @@ class LinkedList {
         }
         return temp
     }
+    get(index) {
+        if(index < 0 || index >= this.length) {
+            return undefined
+        }
+        let temp = this.head
+        for(let i = 0; i < index; i++) {
+            temp = temp.next
+        }
+        return temp
+    }
 }
-
-
-
 
 let myLinkedList = new LinkedList(7)
 
@@ -105,3 +109,5 @@ myLinkedList.unshift(1)
 myLinkedList.shift()
 
 myLinkedList.printAll()
+
+console.log(myLinkedList.get(0))
