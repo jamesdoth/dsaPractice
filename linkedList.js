@@ -96,6 +96,16 @@ class LinkedList {
         }
         return temp
     }
+    set(index, value) {
+        let temp = this.get(index)
+        // 'if temp -> is pointing to a node'
+        if(temp) {
+            temp.value = value
+            // need return to stop if statements from running
+            return true
+        }
+        return false
+    }
 }
 
 let myLinkedList = new LinkedList(7)
@@ -107,6 +117,7 @@ myLinkedList.push(5)
 myLinkedList.pop()
 myLinkedList.unshift(1)
 myLinkedList.shift()
+myLinkedList.set(1,5)
 
 myLinkedList.printAll()
 
