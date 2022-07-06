@@ -13,15 +13,50 @@ class DoublyLinkedList {
         this.length = 1
     }
     printAll() {
+        if(!this.head) {
+            return console.log(undefined)
+        }
         let temp = this.head
         while(temp) {
             console.log(temp)
             temp = temp.next
         }
     }
+    push(value) {
+        const newNode = new Node(value)
+        if(!this.head) {
+            this.head = newNode
+            this.tail = newNode
+        } else {
+            this.tail.next = newNode
+            newNode.prev = this.tail
+            this.tail = newNode
+        }
+        this.length++
+        return this
+    }
+    pop() {
+        if(!this.head) {
+            return undefined
+        }
+        let temp = this.tail
+        if(this.length === 1) {
+            this.head = null
+            this.tail = null
+        } else {
+            this.tail = this.tail.prev
+            this.tail.next = null
+            temp.prev = null
+        }
+        this.length--
+        return temp
+    }
 }
 
+
 let myDoublyLinkedList = new DoublyLinkedList(5)
+myDoublyLinkedList.push(13)
+myDoublyLinkedList.pop()
 
 
 myDoublyLinkedList.printAll()
