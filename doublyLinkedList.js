@@ -116,24 +116,26 @@ class DoublyLinkedList {
             return this.push(value)
         }
         const newNode = new Node(value)
-        const temp = this.get(index - 1)
-        newNode.next = temp.next
-        temp.next = newNode
-        newNode.prev = temp
+        const before = this.get(index - 1)
+        const after = before.next
+        before.next = newNode
+        newNode.next = after
+        newNode.prev = before
+        after.prev = newNode
         this.length++
         return true
     }
 }
 
-
 let myDoublyLinkedList = new DoublyLinkedList(5)
 myDoublyLinkedList.push(13)
+myDoublyLinkedList.push(17)
 myDoublyLinkedList.pop()
 myDoublyLinkedList.unshift(3)
 myDoublyLinkedList.shift()
 myDoublyLinkedList.unshift(1)
 myDoublyLinkedList.shift()
-myDoublyLinkedList.set(1,5)
+myDoublyLinkedList.set(1,8)
 myDoublyLinkedList.insert(1,10)
 
 
