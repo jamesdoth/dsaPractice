@@ -125,6 +125,31 @@ class DoublyLinkedList {
         this.length++
         return true
     }
+    remove(index) {
+        if(index < 0 || index >= this.length) {
+            return undefined
+        }
+        if(index === 0) {
+            return this.shift()
+        }
+        if(index === this.length - 1) {
+            return this.pop()
+        }
+        const temp = this.get(index)
+        temp.prev.next = temp.next
+        temp.next.prev = temp.prev
+        temp.prev = null
+        temp.next = null
+        // const before = this.get(index - 1)
+        // const temp = before.next
+        // const after = temp.next
+        // before.next = temp.next
+        // temp.next = null
+        // temp.prev = null
+        // after.prev = before
+        this.length--
+        return temp
+    }
 }
 
 let myDoublyLinkedList = new DoublyLinkedList(5)
@@ -137,6 +162,7 @@ myDoublyLinkedList.unshift(1)
 myDoublyLinkedList.shift()
 myDoublyLinkedList.set(1,8)
 myDoublyLinkedList.insert(1,10)
+myDoublyLinkedList.remove(1)
 
 
 myDoublyLinkedList.printAll()
