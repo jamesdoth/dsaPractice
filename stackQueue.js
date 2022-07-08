@@ -20,9 +20,21 @@ class Stack {
             temp = temp.next
         }
     }
+    push(value) {
+        const newNode = new Node(value)
+        if(!this.top) {
+            this.top = newNode
+        } else {
+            newNode.next = this.top
+            this.top = newNode
+        }
+        this.length++
+        return this
+    }
 }
 
 let myStack = new Stack(8)
+myStack.push(23)
 
 
 myStack.printAll()
