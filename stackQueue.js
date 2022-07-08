@@ -31,10 +31,25 @@ class Stack {
         this.length++
         return this
     }
+    pop() {
+        if(!this.top) {
+            return undefined
+        }
+        let temp = this.top
+        if(this.length === 1) {
+            this.top = null
+        } else {
+            this.top = this.top.next
+            temp.next = null
+        }
+        this.length--
+        return temp
+    }
 }
 
 let myStack = new Stack(8)
 myStack.push(23)
+myStack.pop()
 
 
 myStack.printAll()
