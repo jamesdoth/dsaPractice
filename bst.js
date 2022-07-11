@@ -9,16 +9,6 @@ class BST {
     constructor() {
         this.root = null
     }
-    printAll() {
-        if(!this.root) {
-            return console.log(undefined)
-        }
-        let temp = this.root
-        while(temp) {
-            console.log(temp)
-            temp = temp.next
-        }
-    }
     insert(value) {
         const newNode = new Node(value)
         if(!this.root) {
@@ -54,5 +44,3 @@ myTree.insert(7)
 myTree.insert(13)
 myTree.insert(128)
 myTree.insert(96)
-
-console.log(myTree)
