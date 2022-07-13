@@ -60,3 +60,7 @@ myTree.insert(7)
 myTree.insert(13)
 myTree.insert(128)
 myTree.insert(96)
+
+console.log(myTree)
+console.log(myTree.contains(128))
+console.log(myTree.contains(32))
