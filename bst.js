@@ -51,6 +51,12 @@ class BST {
         }
         return false
     }
+    minValueNode(currentNode) {
+        while(currentNode.left != null) {
+            currentNode = currentNode.left
+        }
+        return currentNode
+    }
 }
 
 
@@ -64,3 +70,5 @@ myTree.insert(96)
 console.log(myTree)
 console.log(myTree.contains(128))
 console.log(myTree.contains(32))
+console.log(myTree.minValueNode(myTree.root))
+console.log(myTree.minValueNode(myTree.root.right))
