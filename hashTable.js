@@ -31,13 +31,25 @@ class HashTable {
         }
         return undefined
     }
+    // retrieves all keys inside the hash table
+    keys() {
+        let allKeys = []
+        for(let i = 0; i < this.dataMap.length; i++) {
+            if(this.dataMap[i]) {
+                for(let j = 0; j < this.dataMap[i].length; j++) {
+                    allKeys.push(this.dataMap[i][j][0])
+                }
+            }
+        }
+        return allKeys
+    }
 }
 
 let myHashTable = new HashTable()
 myHashTable.set('shoes', 11)
 myHashTable.set('hat', 45)
 console.log(myHashTable.get('hat'))
+console.log(myHashTable.keys())
 
 //need to figure out a way to print hashtable. probably need recursion
 // using chrome dev tools to see results
-console.log(myHashTable)
