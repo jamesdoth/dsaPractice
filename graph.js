@@ -27,6 +27,17 @@ class Graph {
         }
         return false
     }
+    removeVertex(vertex) {
+        if(!this.adjacencyList[vertex]) {
+            return undefined
+        }
+        while(this.adjacencyList[vertex].length) {
+            let temp = this.adjacencyList[vertex].pop()
+            this.removeEdge(vertex, temp)
+        }
+        delete this.adjacencyList[vertex]
+        return this
+    }
 }
 
 let myGraph = new Graph()
@@ -36,4 +47,6 @@ console.log(myGraph.addEdge('1','2'))
 console.log(myGraph)
 
 console.log(myGraph.removeEdge('1','2'))
+console.log(myGraph)
+myGraph.removeVertex(2)
 console.log(myGraph)
