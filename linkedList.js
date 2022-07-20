@@ -157,6 +157,15 @@ class LinkedList {
         }
         return this
     }
+    arr() {
+        let temp = this.head
+        let arr = []
+        while(temp) {
+            arr.push(temp.value)
+            temp = temp.next
+        }
+        return arr
+    }
 }
 
 let myLinkedList = new LinkedList(7)
@@ -172,10 +181,26 @@ myLinkedList.set(1,5)
 myLinkedList.insert(1,10)
 myLinkedList.remove(-3)
 
-myLinkedList.printAll()
+// myLinkedList.printAll()
 
-// console.log(myLinkedList.get(0))
-console.log(myLinkedList.remove(-3))
+// // console.log(myLinkedList.get(0))
+// console.log(myLinkedList.remove(-3))
 
-myLinkedList.reverse()
-myLinkedList.printAll()
+// myLinkedList.reverse()
+// myLinkedList.printAll()
+
+console.log(myLinkedList)
+
+let myLinkedListArr = myLinkedList.arr()
+
+// these methods are from the es5 library
+myLinkedListArr.pop()
+myLinkedListArr.unshift(32)
+console.log(myLinkedListArr)
+
+// const toArray = (sll) => {
+//     if(!sll) {
+//         return [];
+//     }
+//     return [sll.value].concat(this.toArray(sll.next));
+// }
